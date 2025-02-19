@@ -1,0 +1,10 @@
+module bcd_sub(
+input [3:0] a,b,
+input bin,
+output [3:0]diff,
+output bout
+);
+wire [4:0] temp_diff;
+assign temp_diff=a-b-bin;
+assign {bout,diff}={temp_diff[4]==1)? (temp_diff+4'b1010):temp_diff;
+endmodule
