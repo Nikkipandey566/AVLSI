@@ -1,0 +1,16 @@
+module tb_cntr();
+reg clk,rst;
+wire[2:0] cnt;
+cntr uut (.clk(clk),.rst(rst),.cnt(cnt));
+initial begin
+clk=0;
+forever #5 Clk=~clk;
+end
+initial begin
+$monitor("Time:%0t|rst:%b\cnt:%b",$time,rst,cnt);
+rst=1;
+#10 rst=0;
+#100;
+$finish;
+end
+endmodule
